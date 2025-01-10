@@ -34,7 +34,7 @@ class MyWindow(QMainWindow):
     def download(self):
         yt = YouTube(self.textbox.text())
         if self.checkbox.isChecked():
-            audio = yt.streams.filter(only_audio=True).get_highest_resolution()
+            audio = yt.streams.filter(only_audio=True).first()
             audio.download(self.textbox2.text())
         else:
             video = yt.streams.filter(progressive=True, file_extension='mp4').get_highest_resolution()
